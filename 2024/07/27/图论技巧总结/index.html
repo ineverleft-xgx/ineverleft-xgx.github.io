@@ -17,18 +17,18 @@
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
   
-  <title>差分 - ineverleft</title>
+  <title>图论技巧总结 - ineverleft</title>
 
   
-    <meta name="description" content="差分作用：快速进行区间修改 给定数列$a$,构造数列$b$使得 $a_k&#x3D;\sum_{\substack{1\le i\le k }} b_i$,则$b$是$a$的差分数组，$a$是$b$的前缀和数组，前缀和与差分互为逆运算 $b[i]&#x3D;a[i]-a[i-1]$ 此时，若需要把$[l,r]$的数加上$x$,则$a_l$到$a_l$都会加上$x$,此时$b[l]&#x3D;a[l">
+    <meta name="description" content="floyd ： 1234567for(int k&#x3D;1;k&lt;&#x3D;n;k++)&#123;    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;        for(int j&#x3D;1;j&lt;&#x3D;n;j++)&#123;            d[i][j]&#x3D;min(d[i][j],d[i][k]+d[k][j]);        &#125;    &#125;&#125;  当枚">
 <meta property="og:type" content="article">
-<meta property="og:title" content="差分">
-<meta property="og:url" content="http://example.com/2024/07/25/%E5%B7%AE%E5%88%86/index.html">
+<meta property="og:title" content="图论技巧总结">
+<meta property="og:url" content="http://example.com/2024/07/27/%E5%9B%BE%E8%AE%BA%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="ineverleft">
-<meta property="og:description" content="差分作用：快速进行区间修改 给定数列$a$,构造数列$b$使得 $a_k&#x3D;\sum_{\substack{1\le i\le k }} b_i$,则$b$是$a$的差分数组，$a$是$b$的前缀和数组，前缀和与差分互为逆运算 $b[i]&#x3D;a[i]-a[i-1]$ 此时，若需要把$[l,r]$的数加上$x$,则$a_l$到$a_l$都会加上$x$,此时$b[l]&#x3D;a[l">
+<meta property="og:description" content="floyd ： 1234567for(int k&#x3D;1;k&lt;&#x3D;n;k++)&#123;    for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;        for(int j&#x3D;1;j&lt;&#x3D;n;j++)&#123;            d[i][j]&#x3D;min(d[i][j],d[i][k]+d[k][j]);        &#125;    &#125;&#125;  当枚">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-25T13:14:39.361Z">
-<meta property="article:modified_time" content="2024-07-16T16:29:52.730Z">
+<meta property="article:published_time" content="2024-07-27T13:17:50.541Z">
+<meta property="article:modified_time" content="2024-07-28T14:32:58.227Z">
 <meta property="article:author" content="ineverleft(xgx)">
 <meta name="twitter:card" content="summary">
   
@@ -76,30 +76,22 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-07-25T13:14:39.361Z">2024-07-25</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-07-16T16:29:52.730Z">2024-07-17</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-07-27T13:17:50.541Z">2024-07-27</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-07-28T14:32:58.227Z">2024-07-28</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>差分</span></h1>
+        <h1 class="text title"><span>图论技巧总结</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h1><p>作用：快速进行区间修改</p>
-<p>给定数列$a$,构造数列$b$使得 $a_k&#x3D;\sum_{\substack{1\le i\le k }} b_i$,则$b$是$a$的差分数组，$a$是$b$的前缀和数组，<strong>前缀和与差分互为逆运算</strong></p>
-<p>$b[i]&#x3D;a[i]-a[i-1]$</p>
-<p>此时，若需要把$[l,r]$的数加上$x$,则$a_l$到$a_l$都会加上$x$,此时$b[l]&#x3D;a[l]-a[l-1]$增大了$x$,$b[r+1]&#x3D;a[r+1]-a[r]$减小了$x$，所以$b[l]+&#x3D;x,b[r+1]-&#x3D;x$</p>
-<p>修改后，求前缀和即可得到原数组修改后的结果</p>
-<p>例：给一个$n$项数列，共$p$次修改，每次把$[l,r]$之间的数加上$x$,求修改后数列的最小值</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">5e6</span><span class="number">+5</span>;</span><br><span class="line"><span class="type">int</span> n,p;</span><br><span class="line"><span class="type">int</span> a[N],b[N];</span><br><span class="line"><span class="type">int</span> ans=<span class="number">1e9</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; p;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        b[i]=a[i]-a[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=p;i++)&#123;</span><br><span class="line">        <span class="type">int</span> l,r,x;</span><br><span class="line">        cin &gt;&gt; l &gt;&gt; r &gt;&gt; x;</span><br><span class="line">        b[l]+=x,b[r<span class="number">+1</span>]-=x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        a[i]=a[i<span class="number">-1</span>]+b[i];</span><br><span class="line">        ans=<span class="built_in">min</span>(ans,a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </div><article class="md-text content"><p>floyd ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(int k=1;k&lt;=n;k++)&#123;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            d[i][j]=min(d[i][j],d[i][k]+d[k][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="二维差分"><a href="#二维差分" class="headerlink" title="二维差分"></a>二维差分</h2><p>若$b[x][y]$加上$k$,则从点$(x,y)$到$(n,n)$均加上了$k$,所以要给左上点$(x_1,y_1)$,右下点$(x_2,y_2)$的矩阵加上$k$,则$b[x_1][y_1]+&#x3D;k,b[x_2+1][y_1]-&#x3D;k,b[x_1][y_2+1]-&#x3D;k,b[x_2+1][y_2+1]+&#x3D;k$</p>
-<p>最后求前缀和数组即可</p>
-<p>例：有一个$n*n$的矩阵，$m$次修改，每次修改把$(x_1,y_1)$到$(x_2,y_2)$的矩阵加$1$,最后求修改后的矩阵</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1005</span>;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">int</span> b[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">change</span><span class="params">(<span class="type">int</span> x_1,<span class="type">int</span> y_1,<span class="type">int</span> x_2,<span class="type">int</span> y_2,<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">    b[x_1][y_1]+=k;</span><br><span class="line">    b[x_2<span class="number">+1</span>][y_1]-=k;</span><br><span class="line">    b[x_1][y_2<span class="number">+1</span>]-=k;</span><br><span class="line">    b[x_2<span class="number">+1</span>][y_2<span class="number">+1</span>]+=k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">int</span> a,b,c,d;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">        <span class="built_in">change</span>(a,b,c,d,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            b[i][j]+=b[i<span class="number">-1</span>][j]+b[i][j<span class="number">-1</span>]-b[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">            cout &lt;&lt; b[i][j] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>当枚举到 k 时，<code>d[i][j]</code> 表示只经过 1~k 的 i 到 j 的最短路径</p>
+<p> 同余最短路 P3403</p>
 
 <div class="article-footer fs14">
     <section id="license">
@@ -109,7 +101,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/07/25/%E5%B8%B8%E7%94%A8STL/">常用STL</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/07/25/%E5%A0%86/">堆</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/07/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/">数据结构技巧总结</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/07/25/%E9%AB%98%E7%B2%BE%E5%BA%A6/">高精度</a></div></section></div>
 
 
 
@@ -134,14 +126,7 @@
 <footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">ineverleft(xgx)</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.1">Stellar 1.29.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
-<div class="widgets">
-
-
-
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86"><span class="toc-text">二维差分</span></a></li></ol></div><div class="widget-footer">
-
-<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
-</div></aside><div class='float-panel blur'>
+</aside><div class='float-panel blur'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
   </button>
