@@ -20,17 +20,23 @@
   <title>数论 - ineverleft</title>
 
   
-    <meta name="description" content="数论定理欧几里得算法已知两个数 $a,b$，记它们的最大公约数为 $\gcd(a,b)$ ，则有： $\gcd(a,b)&#x3D;\gcd(b,a \bmod b)$ 递归求解，当 $b&#x3D;0$ 时 $\gcd(a,0)&#x3D;a$。 时间复杂度 $O(\log a)$ 123456int gcd(int a,int b)&#123;    if(!b)&#123;        r">
+    <meta name="description" content="数论定理欧几里得算法已知两个数 $a,b$，记它们的最大公约数为 $\gcd(a,b)$ ，则有：  递归求解，当 $b&#x3D;0$ 时 $\gcd(a,0)&#x3D;a$。 时间复杂度 $O(\log a)$ 123456int gcd(int a,int b)&#123;    if(!b)&#123;        return a;    &#125;    return gcd(b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数论">
 <meta property="og:url" content="http://example.com/2024/10/24/%E6%95%B0%E8%AE%BA/index.html">
 <meta property="og:site_name" content="ineverleft">
-<meta property="og:description" content="数论定理欧几里得算法已知两个数 $a,b$，记它们的最大公约数为 $\gcd(a,b)$ ，则有： $\gcd(a,b)&#x3D;\gcd(b,a \bmod b)$ 递归求解，当 $b&#x3D;0$ 时 $\gcd(a,0)&#x3D;a$。 时间复杂度 $O(\log a)$ 123456int gcd(int a,int b)&#123;    if(!b)&#123;        r">
+<meta property="og:description" content="数论定理欧几里得算法已知两个数 $a,b$，记它们的最大公约数为 $\gcd(a,b)$ ，则有：  递归求解，当 $b&#x3D;0$ 时 $\gcd(a,0)&#x3D;a$。 时间复杂度 $O(\log a)$ 123456int gcd(int a,int b)&#123;    if(!b)&#123;        return a;    &#125;    return gcd(b">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242221287.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242221569.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242221169.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242222155.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242222790.png">
 <meta property="article:published_time" content="2024-10-24T14:05:45.791Z">
-<meta property="article:modified_time" content="2024-10-24T14:15:25.307Z">
+<meta property="article:modified_time" content="2024-10-24T14:22:24.636Z">
 <meta property="article:author" content="ineverleft(xgx)">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242221287.png">
   
   
   
@@ -76,7 +82,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-10-24T14:05:45.791Z">2024-10-24</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-10-24T14:15:25.307Z">2024-10-24</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-10-24T14:05:45.791Z">2024-10-24</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-10-24T14:22:24.636Z">2024-10-24</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -88,7 +94,7 @@
     
   </div>
   </div><article class="md-text content"><h1 id="数论定理"><a href="#数论定理" class="headerlink" title="数论定理"></a>数论定理</h1><h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p>已知两个数 $a,b$，记它们的最大公约数为 $\gcd(a,b)$ ，则有：</p>
-<p>$\gcd(a,b)&#x3D;\gcd(b,a \bmod b)$</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242221287.png" alt="image-20241024222015852"></p>
 <p>递归求解，当 $b&#x3D;0$ 时 $\gcd(a,0)&#x3D;a$。</p>
 <p>时间复杂度 $O(\log a)$</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">gcd</span>(b,a%b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -97,7 +103,7 @@
 
 <h2 id="扩展欧几里得算法"><a href="#扩展欧几里得算法" class="headerlink" title="扩展欧几里得算法"></a>扩展欧几里得算法</h2><p>用于求形如 $ax+by&#x3D;\gcd(a,b)$</p>
 <p>过程：</p>
-<p>$设<br>\left{\begin{matrix}<br>ax_1+by_1&#x3D;\gcd(a,b)\<br>bx_2+(a \bmod b) y_2&#x3D;\gcd(b,a \bmod b)<br>\end{matrix}\right.<br>\<br>\because \gcd(a,b)&#x3D;\gcd(b,a\bmod b)\<br>\therefore ax_1+by_1&#x3D;bx_2+(a \bmod b)y_2\<br>又 \because a \bmod b &#x3D; a - (\lfloor \frac a b \rfloor \times b)\<br>\therefore ax_1+by_1&#x3D;bx_2+(a-(\lfloor \frac a b \rfloor \times b)) y_2\&#x3D;ay_2+bx_2-\lfloor \frac a b \rfloor \times by_2&#x3D;ay_2+b(x_2-\lfloor \frac a b \rfloor y_2)\<br>\therefore x_1&#x3D;y_2,y_1&#x3D;x_2-\lfloor \frac a b \rfloor y_2$</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242221569.png" alt="image-20241024222130290"></p>
 <p>递归求解，当 $b&#x3D;0$ 时，显然有一组解 $x&#x3D;1,y&#x3D;0$。</p>
 <p>时间复杂度 $O(\log a)$</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!b)&#123;</span><br><span class="line">        x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> d=<span class="built_in">exgcd</span>(b,a%b,y,x);</span><br><span class="line">    y=y-a/b*x;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -115,11 +121,11 @@
 <p>求单个欧拉函数值：使用第 4 条性质</p>
 <p>求多个欧拉函数值：使用线性筛法（积性函数）</p>
 <h2 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h2><p>若 $\gcd(a,m)&#x3D;1$，则 $a^{\varphi(m)} \equiv 1 (\bmod m)$</p>
-<h2 id="扩展欧拉定理"><a href="#扩展欧拉定理" class="headerlink" title="扩展欧拉定理"></a>扩展欧拉定理</h2><p>$a^b \equiv \left{\begin{matrix}<br>  a^{b\ \bmod\ \varphi(m)} &amp; \gcd(a,m)&#x3D;1 \<br>  a^b &amp; \gcd(a,m) \not &#x3D; 1, b &lt; \varphi(m) \<br>  a^{b\ \bmod\ \varphi(m)+\varphi(m)} &amp; \gcd(a,m) \not &#x3D; 1, b \ge \varphi(m)<br>\end{matrix}\right. \ \ \ \ (\bmod m)$</p>
+<h2 id="扩展欧拉定理"><a href="#扩展欧拉定理" class="headerlink" title="扩展欧拉定理"></a>扩展欧拉定理</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242221169.png" alt="image-20241024222149000"></p>
 <h2 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h2><p>若 $p$ 是素数，$\gcd(a,p)&#x3D;1$，则 $a^{p-1} \equiv 1 ( \bmod p)$</p>
 <p>对于任意整数 $a$， 有 $a^p \equiv a (\bmod p)$</p>
 <h2 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h2><p>求解如下形式的一元线性同余方程组（其中 $n_1,n_2,\cdots ,n_k$ 两两互质）:</p>
-<p>$\left{\begin{matrix}<br>  x \equiv a_1\ \ ( \bmod n_1)\<br>  x \equiv a_2\ \ ( \bmod n_2)\<br>  \vdots\<br>  x \equiv a_k\ \ ( \bmod n_k)\<br>\end{matrix}\right.$</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242222155.png" alt="image-20241024222204972"></p>
 <p>过程：</p>
 <ol>
 <li><p>计算 $n&#x3D;\prod_{i&#x3D;1}^k n_i$</p>
@@ -139,7 +145,7 @@
 <h5 id="多个方程"><a href="#多个方程" class="headerlink" title="多个方程"></a>多个方程</h5><p>按两个方程的方法两两合并即可。</p>
 <h2 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h2><p>对于素数 $p$ 有 $(p-1)! \equiv -1 (\bmod p)$</p>
 <h2 id="卢卡斯定理"><a href="#卢卡斯定理" class="headerlink" title="卢卡斯定理"></a>卢卡斯定理</h2><p>对于素数 $p$，有</p>
-<p>$\binom{n}{m} \bmod p &#x3D; \binom{\lfloor n&#x2F;p \rfloor}{\lfloor m &#x2F; p \rfloor} \cdot \binom{n \bmod p}{m \bmod p} \bmod p$</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/ineverleft-xgx/pictures/main/picgo/202410242222790.png" alt="image-20241024222219933"></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">Lucas</span><span class="params">(<span class="type">long</span> <span class="type">long</span> n,<span class="type">long</span> <span class="type">long</span> m,<span class="type">long</span> <span class="type">long</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(m==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">C</span>(n%p,m%p,p)*<span class="built_in">Lucas</span>(n/p,m/p,p))%p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
